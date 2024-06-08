@@ -9,9 +9,10 @@ const Stack = createNativeStackNavigator()
 export default function HomeScreen() {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="First">
-        <Stack.Screen name="First" component={AppScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={AppScreen} />
+        <Stack.Screen name="About" component={AboutScreen} 
+                initialParams={{ name: "Guest"}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
