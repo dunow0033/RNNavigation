@@ -34,16 +34,17 @@ export default function AppScreen({ navigation }) {
             errors.username ? <Text style={styles.errorText}>{errors.username}</Text> : null
           }
 
-      {/*<Button style={styles.button}
-        title="Login"
-        //onPress={() => navigation.navigate("About",  { name: username })}
-        onPress={handleLogin}
-      />*/}
-      <TouchableOpacity 
+      <Button 
+        style={styles.button}
+        title="Go to About"
+        onPress={() => 
+          navigation.navigate("About",  { name: username })}
+      />
+      {/*<TouchableOpacity 
         style={{ borderRadius: 7, backgroundColor: '#147EFB', padding: 10 }}
         onPress={handleLogin}>
         <Text style={{ color: '#fff' }}>Login</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>*/}
       {/*<Text style={styles.text}>{route.params?.result}</Text>*/}
     </View>
   );

@@ -1,7 +1,16 @@
 import React, { useState, Component, useEffect } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
+import { useLayoutEffect } from 'react';
 
 export default function AboutScreen({ navigation, route }) {
+
+  const { name } = route.params;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: name
+    });
+  }, [navigation, name]);
 
   // const [onLoadText, setText] = useState("");
 
@@ -13,11 +22,11 @@ export default function AboutScreen({ navigation, route }) {
   //   alert("You are logging in!!");
   // }, [])
 
-  const handleLogout = () => {
-      let proceed = confirm("Are you sure you want to logout?");
-      if(proceed)
-        navigation.navigate("Home");
-  };
+  // const handleLogout = () => {
+  //     let proceed = confirm("Are you sure you want to logout?");
+  //     if(proceed)
+  //       navigation.navigate("Home");
+  // };
 
   return (
     <View style={styles.container}>
@@ -28,7 +37,7 @@ export default function AboutScreen({ navigation, route }) {
       /> */}
       <Button
         title="Logout"
-        onPress={handleLogout}
+        onPress={() => navigation.navigate("Home")}
         />
     </View>
   );
